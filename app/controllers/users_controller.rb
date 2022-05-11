@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     #User.create(params[:user])
     @user = User.new(user_params)
     if @user.save
+      log_in @user
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user # user_path
       #@userからやりたいことをrailsが推測して展開してくれる
